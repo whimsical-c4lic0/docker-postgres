@@ -20,9 +20,6 @@ RUN apt install ./postgresql-$PG_MAJOR-vchord_$VECTORCHORD_VERSION-1_$(dpkg --pr
 
 RUN rm -rf /var/lib/apt/lists/*
 
-RUN mkdir -p /docker-entrypoint-initdb.d
-COPY ./initdb-vectorchord.sh /docker-entrypoint-initdb.d/10_vectorchord.sh
-COPY ./initdb-postgis.sh /docker-entrypoint-initdb.d/10_postgis.sh
 COPY ./update-postgis.sh /usr/local/bin
 
 CMD ["postgres", "-c", "shared_preload_libraries=vchord.so"]
