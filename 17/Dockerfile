@@ -16,7 +16,7 @@ RUN apt-get update \
            postgresql-$PG_MAJOR-postgis-$POSTGIS_MAJOR-scripts
 
 RUN wget https://github.com/tensorchord/VectorChord/releases/download/$VECTORCHORD_VERSION/postgresql-$PG_MAJOR-vchord_$VECTORCHORD_VERSION-1_$(dpkg --print-architecture).deb
-RUN apt install ./postgresql-$PG_MAJOR-vchord_$VECTORCHORD_VERSION-1_$(dpkg --print-architecture).deb
+RUN apt-get install -y ./postgresql-$PG_MAJOR-vchord_$VECTORCHORD_VERSION-1_$(dpkg --print-architecture).deb
 
 RUN rm -rf /var/lib/apt/lists/*
 
